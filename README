@@ -1,0 +1,5 @@
+Interface web para geração do arquivo de remessa do banco Santander.
+
+O layout do arquivo é customizado para impressão pela gráfica. Neste
+layout existem colunas a mais no arquivo, com informações adicionais
+do cliente.
