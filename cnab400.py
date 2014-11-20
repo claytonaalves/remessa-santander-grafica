@@ -1,48 +1,6 @@
 #coding: utf8
 from datetime import date
 
-class Empresa(object):
-    razao              = u'RAZÃO SOCIAL DA EMPRESA'
-    codigo_transmissao = '20320216899501300356'
-    cnpj               = '02271317000198'
-
-
-class Banco(object):
-    codigo = '033'
-    nome   = 'SANTANDER'
-
-    # Codigos da carteira
-    # 1 = ELETRÔNICA COM REGISTRO
-    # 3 = CAUCIONADA ELETRÔNICA
-    # 4 = COBRANÇA SEM REGISTRO
-    # 5 = RÁPIDA COM REGISTRO (BLOQUETE EMITIDO PELO CLIENTE)
-    # 6 = CAUCIONADA RAPIDA
-    # 7 = DESCONTADA ELETRÔNICA
-    codigo_carteira = '4'
-
-
-class Sacado(object):
-    numero_documento = '' # numero do documento cpf ou cnpj
-    nome = ''
-    endereco = ''
-    bairro = ''
-    cep = ''
-    cidade = ''
-    uf = ''
-
-    @property
-    def tipo_inscricao(self):
-        """ Tipo de inscrição do sacado: 01 = CPF, 02 = CGC
-        """
-        return '01' if len(self.numero_documento)==11 else '02'
-
-
-class Boleto(object):
-    
-    def __init__(self):
-        self.sacado = Sacado()
-
-
 class CNAB400(object):
 
     def __init__(self, banco, empresa):
