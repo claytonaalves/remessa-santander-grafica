@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Gerar remessa bancária</title>
+        <link rel="stylesheet" href="static/css/jquery-ui-1.10.4.custom.css" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="static/css/bootstrap.css" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="static/css/app.css" type="text/css" media="screen" charset="utf-8">
+    </head>
+<body>
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Gerar remessa bancária</h1>
+            <form action="gerar" method="post" id="form1">
+
+                <div class="line">
+                    <div class="col-md-4">
+                        <label for="banco">Banco:</label>
+                        <select name="banco" id="banco">
+                            %for banco in bancos:
+                            <option value="{{banco.id_}}">{{banco}}</option>
+                            %end
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="grupo">Grupo do cliente:</label>
+                        <select name="grupo" id="grupo">
+                            %for grupo in grupos:
+                            <option value="{{grupo}}">{{grupo}}</option>
+                            %end
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="line">
+                    <div class="col-md-12">
+                        Situação: <br>
+                        <input type="radio" name="situacao" id="rTodos" value="todos">
+                        <label for="rTodos">todos</label>
+                        <input type="radio" name="situacao" id="rAtivos" value="ativos" checked>
+                        <label for="rAtivos">ativos</label>
+                        <input type="radio" name="situacao" id="rBloqueados" value="bloqueados">
+                        <label for="rBloqueados">bloqueados</label>
+                        <input type="radio" name="situacao" id="rDesativados" value="desativados">
+                        <label for="rDesativados">desativados</label>
+                    </div>
+                </div>
+
+                <div class="line">
+                    <div class="col-md-3">
+                        <div>Período de vencimento</div>
+                        <input type="text" name="data_inicial" value="" id="data_inicial">
+                    </div>
+                    <div class="col-md-3">
+                        <div>até</div>
+                        <input type="text" name="data_final" value="" id="data_final">
+                    </div>
+                </div>
+
+                <div class="line">
+                    <div class="col-md-12">
+                        <p><input type="submit" value="Gerar arquivo de remessa"></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="static/js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+    <script src="static/js/jquery-ui-1.10.4.custom.js" type="text/javascript" charset="utf-8"></script>
+    <script src="static/js/jquery.ui.datepicker-pt-BR.js" type="text/javascript" charset="utf-8"></script>
+    <script src="static/js/app.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>
