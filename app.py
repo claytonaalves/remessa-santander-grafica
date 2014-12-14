@@ -20,8 +20,9 @@ def gerar():
     print arquivo_remessa
     return static_file(arquivo_remessa, root=root_path, download=True)          
 
-run( host='0.0.0.0',
-     port=8080,
-     debug=True, 
-     reloader=True 
- )
+if __name__=="__main__":
+    run( host='0.0.0.0',
+         port=8080,
+         debug=True, 
+         reloader=True 
+    )
