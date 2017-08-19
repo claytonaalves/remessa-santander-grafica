@@ -15,7 +15,7 @@ class CNAB400(object):
         self.arquivo.write('01')                                   # codigo servico
         self.arquivo.write('COBRANCA'.ljust(15))                   # literal servico
         self.arquivo.write(self.empresa.codigo_transmissao)        # codigo de transmissão
-        self.arquivo.write(self.empresa.razao.encode('latin1'))    # nome da empresa
+        self.arquivo.write(self.empresa.razao.encode('latin1').ljust(30))    # nome da empresa
         self.arquivo.write(self.banco.codigo)                      # codigo do banco
         self.arquivo.write(self.banco.nome.ljust(15))              # nome do banco
         self.arquivo.write(date.today().strftime('%d%m%y'))        # data gravacao
